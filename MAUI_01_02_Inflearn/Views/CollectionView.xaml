@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_01_02_Inflearn.Views.CollectionView"
+             Title="CollectionView">
+    <!-- ch_17_컬렉션뷰 -->
+    <CollectionView x:Name="lst" 
+                    SelectionMode="Single" 
+                    SelectionChanged="lst_SelectionChanged">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <VerticalStackLayout>
+                    <Image Source="{Binding Image}"></Image>
+                    <Label Text="{Binding Name}"  HorizontalOptions="Center" />
+                    <Label Text="{Binding Age}"  HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+        <!-- 리스트뷰와 다른 부분: 가로 배치, 2개씩 배치 가능-->
+        <CollectionView.ItemsLayout>
+            <!--<GridItemsLayout Orientation="Horizontal" />-->
+            <GridItemsLayout Orientation="Vertical" Span="2" 
+                             VerticalItemSpacing="30" HorizontalItemSpacing="10"/>
+        </CollectionView.ItemsLayout>
+    </CollectionView>
+</ContentPage>

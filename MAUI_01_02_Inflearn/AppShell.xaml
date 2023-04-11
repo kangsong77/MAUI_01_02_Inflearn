@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MAUI_01_02_Inflearn.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MAUI_01_02_Inflearn"
+    xmlns:views="clr-namespace:MAUI_01_02_Inflearn.Views"
+    Shell.FlyoutBehavior="Flyout"> <!-- 1. Disabled에서 바꾸고 Locked는 고정-->
+
+    <!-- 기본 자동생성된 소스
+        <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />-->
+
+    <!--ch05_FlyoutPage-->
+    <!--3. 왼쪽 메뉴창에만 나오게 하고싶을때 MenuFlyoutItem-->
+    <MenuFlyoutItem x:Name="menu1" Text="FirstPage_Modal" Clicked="menu1_Clicked" 
+                    IconImageSource="https://cdn3.iconfinder.com/data/icons/fluent-solid-24px-vol-4/24/ic_fluent_keyboard_tab_24_filled-512.png"/>
+
+    <MenuFlyoutItem x:Name="menu2" Text="Page_PushAsync" Clicked="menu2_Clicked"
+                    IconImageSource="https://cdn3.iconfinder.com/data/icons/fluent-solid-24px-vol-4/24/ic_fluent_keyboard_tab_24_filled-512.png"/>
+
+
+    <FlyoutItem FlyoutDisplayOptions="AsSingleItem"> <!-- 2. 옵션지정 AsSingleItem:메뉴창에서는 안보임. 하단탭만 보임 -->
+        <ShellContent Title="메인페이지1" 
+                      Icon="https://cdn3.iconfinder.com/data/icons/fluent-solid-24px-vol-4/24/ic_fluent_keyboard_tab_24_filled-512.png"
+                      ContentTemplate="{DataTemplate local:MainPage}" />
+        <ShellContent Title="페이지1" ContentTemplate="{DataTemplate views:Page1}" />
+        <ShellContent Title="페이지1" ContentTemplate="{DataTemplate views:Page1}" />
+        <ShellContent Title="페이지1" ContentTemplate="{DataTemplate views:Page1}" />
+    </FlyoutItem>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="메인페이지2" 
+                      Icon="https://cdn3.iconfinder.com/data/icons/fluent-solid-24px-vol-4/24/ic_fluent_keyboard_tab_24_filled-512.png"
+                      ContentTemplate="{DataTemplate local:MainPage}" />
+        <ShellContent Title="페이지2" ContentTemplate="{DataTemplate views:Page1}" />
+        <ShellContent Title="페이지2" ContentTemplate="{DataTemplate views:Page1}" />
+        <ShellContent Title="페이지2" ContentTemplate="{DataTemplate views:Page1}" />
+    </FlyoutItem>
+
+</Shell>

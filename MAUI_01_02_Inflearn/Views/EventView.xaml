@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_01_02_Inflearn.Views.EventView"
+             Title="EventView">
+    <ScrollView>
+        <!-- ch13_이벤트-->
+        <VerticalStackLayout  Margin="10">
+            <Button x:Name="btn" Text="버튼이벤트" Clicked="btn_Clicked" />
+            <ImageButton x:Name="imgBtn" Source="dotnet_bot.svg" Clicked="imgBtn_Clicked" />
+            <RadioButton Content="1" GroupName="그룹" CheckedChanged="radioBtn_CheckedChanged" />
+            <RadioButton Content="2" GroupName="그룹" CheckedChanged="radioBtn_CheckedChanged" />
+            <RadioButton Content="3" GroupName="그룹" CheckedChanged="radioBtn_CheckedChanged" />
+            <RadioButton Content="4" GroupName="그룹2" CheckedChanged="radioBtn_CheckedChanged_1" />
+            <RadioButton Content="5" GroupName="그룹2" CheckedChanged="radioBtn_CheckedChanged_1" />
+            <RadioButton Content="6" GroupName="그룹2" CheckedChanged="radioBtn_CheckedChanged_1" />
+            <!-- 이벤트 없는것들은 탭제스쳐통해 이벤트처리 가능-->
+            <Label Text="탭제스쳐이벤트">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+            <BoxView BackgroundColor="DarkSeaGreen" WidthRequest="50" HeightRequest="50">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <Entry Placeholder="아이디" ></Entry>
+            <Entry Placeholder="숫자만 입력" Keyboard="Numeric" ></Entry>
+            <Entry Placeholder="패스워드" IsPassword="True" TextChanged="Entry_TextChanged"></Entry>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

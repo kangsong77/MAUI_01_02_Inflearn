@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_01_02_Inflearn.Views.CarouselPage"
+             Title="CarouselPage">
+    <!-- ch15_캐로우셀뷰-->
+    <!-- 참고: https://gist.github.com/jfversluis/e6e477eced3fdae66b498e7c0c2ca973 -->
+    <VerticalStackLayout Padding="10" Spacing="5">
+        <CarouselView IndicatorView="indiView">
+            <CarouselView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Hey...</x:String>
+                    <x:String>Psssst...!</x:String>
+                    <x:String>Check out...</x:String>
+                    <x:String>CarouselView</x:String>
+                    <x:String>In MAUI?!</x:String>
+                    <x:String>🎠 🎉</x:String>
+                </x:Array>
+            </CarouselView.ItemsSource>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="LightGray" HeightRequest="100" WidthRequest="200"
+                           HorizontalOptions="Center">
+                        <Border BackgroundColor="Salmon">
+                            <Border.StrokeShape>
+                                <Rectangle />
+                            </Border.StrokeShape>
+                            <Label Text="{Binding .}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Wheat" FontSize="Title" />
+                        </Border>
+                    </Frame>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView x:Name="indiView"
+          IndicatorColor="LightGray"
+          SelectedIndicatorColor="Black"
+          IndicatorSize="10" HorizontalOptions="Center"/>
+    </VerticalStackLayout>
+</ContentPage>

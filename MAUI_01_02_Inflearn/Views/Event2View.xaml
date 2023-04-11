@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_01_02_Inflearn.Views.Event2View"
+             Title="Event2View">
+    <!-- ch14_이벤트2-->
+    <VerticalStackLayout>
+        <ActivityIndicator x:Name="act" IsRunning="True" BackgroundColor="LightGray"/>
+        <DatePicker DateSelected="DatePicker_DateSelected"  />
+        <CheckBox x:Name="chk1" IsChecked="True" CheckedChanged="chk1_CheckedChanged" />
+        <CheckBox x:Name="chk2" IsChecked="False" CheckedChanged="chk1_CheckedChanged" />
+        <Label x:Name="lbl2" />
+        <Stepper x:Name="stepper" Minimum="0" Maximum="10" Increment="1"
+                 ValueChanged="stepper_ValueChanged" />
+        <Switch IsToggled="True" x:Name="sw1" Toggled="sw1_Toggled" />
+        <Switch IsToggled="False" x:Name="sw2" Toggled="sw1_Toggled" />
+    </VerticalStackLayout>
+</ContentPage>

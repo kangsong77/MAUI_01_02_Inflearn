@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_01_02_Inflearn.Views.FlexLayoutView"
+             Title="FlexLayoutView">
+ <!-- ch_09_ FlexLayout -->
+<!-- 옵션1: JustifyContent -->
+    <!-- Start/ SpaceAround/End-->
+    <!-- SpaceAround: 1.4 절반크기 배치되고 3.4 요소 균등배치-->
+    <!-- SpaceBetween: 1.4 끝에 붙고 나머지요소 균등배치-->
+    <!-- SpaceEvenly: 모두 균등 배치-->
+    <!--<FlexLayout JustifyContent="SpaceEvenly" >-->
+
+<!-- 옵션2: AlignItems -->
+    <!--AlignItems="End"> -->
+    <!-- Start/Center/End/Stretch-->
+
+<!-- 옵션3: Direction -->
+    <!--<FlexLayout Direction="RowReverse" >
+        --><!-- Row/ RowReverse:가로방향 반대로--><!--
+        <Button Text="1" BackgroundColor="DarkCyan"/>
+        <Button Text="2" BackgroundColor="DarkBlue"/>
+        <Button Text="3" BackgroundColor="DarkSalmon"/>
+        <Button Text="4" BackgroundColor="DarkKhaki"/>
+    </FlexLayout>-->
+
+<!-- 적용예 1-->
+    <!--<FlexLayout Direction="Column" >
+        <Button Text="헤더" BackgroundColor="DarkCyan"/>
+        --><!-- FlexLayout.Grow="0"이 기본값. 1로 바꾸어줘야 함. 나머지 공간을 FlexLayout이 다 가져감 --><!--
+        <FlexLayout FlexLayout.Grow="1" Direction="Row" JustifyContent="SpaceEvenly">
+            <Label Text="311" BackgroundColor="DarkSalmon" VerticalTextAlignment="Center"/>
+            <Label Text="411" BackgroundColor="DarkKhaki" VerticalTextAlignment="Center"/>
+            <Label Text="511" BackgroundColor="DarkSalmon"/>
+            <Label Text="611" BackgroundColor="DarkKhaki"/>
+        </FlexLayout>
+        <Button Text="푸터" BackgroundColor="DarkBlue"/>
+    </FlexLayout>-->
+
+<!-- 적용예 2-->
+    <Grid RowDefinitions="auto, auto, auto">
+        <Button Grid.Row="0" Text="첫번째줄" BackgroundColor="DarkGoldenrod"/>
+
+        <FlexLayout Grid.Row="1" JustifyContent="SpaceAround" Wrap="Wrap">
+            <BoxView  WidthRequest="70" HeightRequest="70" Color="Gray" Margin="5"/>
+            <BoxView  WidthRequest="70" HeightRequest="70" Color="Gray" Margin="5"/>
+            <BoxView  WidthRequest="70" HeightRequest="70" Color="Gray" Margin="5"/>
+            <BoxView  WidthRequest="70" HeightRequest="70" Color="Gray" Margin="5"/>
+            <BoxView  WidthRequest="70" HeightRequest="70"  Color="Gray" Margin="5"/>
+            <BoxView  WidthRequest="70" HeightRequest="70"  Color="Gray" Margin="5"/>
+            <BoxView  WidthRequest="70" HeightRequest="70"  Color="Gray" Margin="5"/>
+            <BoxView  WidthRequest="70" HeightRequest="70" Color="Gray" Margin="5"/>
+        </FlexLayout>
+    </Grid>
+</ContentPage>

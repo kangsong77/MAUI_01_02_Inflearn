@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_01_02_Inflearn.Views.Page3"
+             Title="Page3">
+    <VerticalStackLayout Spacing="10" Margin="10" BackgroundColor="DeepPink">
+        <Label 
+            Text="Page 3"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button Text="이전화면" Clicked="btn1_Clicked" x:Name="btn1" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+        <Button Text="첫화면" Clicked="btn2_Clicked" x:Name="btn2" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+        <Button Text="모달닫기" Clicked="btn3_Clicked" x:Name="btn3" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+    </VerticalStackLayout>
+</ContentPage>

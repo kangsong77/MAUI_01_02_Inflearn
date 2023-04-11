@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_01_02_Inflearn.Views.ShapesView"
+             Title="ShapesView">
+    <!-- ch12_Shapes-->
+    <!-- 마소문서 https://learn.microsoft.com/ko-kr/dotnet/maui/user-interface/controls/shapes/polygon?view=net-maui-7.0-->
+    <VerticalStackLayout Margin="10" Spacing="10">
+        <!-- Polygon: 40,10 이 한 점-->
+        <Polygon Points="40,10 70,80 10,50 40,50"
+         Fill="AliceBlue"
+         Stroke="Green"
+         StrokeThickness="5" />
+        <!-- StrokeDashArray: 앞숫자 라인길이, 뒷숫자 공백길이-->
+        <Polyline Points="0,0 10,30 15,0 18,60 23,30 35,30 40,0 43,60 48,30 100,30"
+          Stroke="Red"
+          StrokeThickness="2"
+          StrokeDashArray="1,1"
+          StrokeDashOffset="6" />
+        <Ellipse Fill="DarkRed"
+         WidthRequest="150"
+         HeightRequest="50"
+         HorizontalOptions="Start" />
+        <Line X1="0" Y1="0" X2="50" Y2="0" StrokeThickness="5" Stroke="DarkGreen" />
+        <Line X1="40"
+          Y1="0"
+          X2="0"
+          Y2="120"
+          StrokeThickness="5"    
+          Stroke="DarkGreen" />
+        <Line X1="100" Y1="100" X2="100" Y2="100" StrokeThickness="5" Stroke="DarkGreen" />
+        <Line X1="100" Y1="100" X2="50" Y2="100" StrokeThickness="5" Stroke="DarkGreen" />
+        <Line X1="100" Y1="100" X2="0" Y2="100" StrokeThickness="5" Stroke="DarkGreen" />
+
+        <Rectangle Fill="Salmon"
+           Stroke="Black"
+           StrokeThickness="5"
+           RadiusX="50"
+           RadiusY="10"
+           WidthRequest="200"
+           HeightRequest="100"
+           HorizontalOptions="Start" />
+    </VerticalStackLayout>
+</ContentPage>

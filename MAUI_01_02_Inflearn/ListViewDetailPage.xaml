@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_01_02_Inflearn.ListViewDetailPage"
+             Title="ListViewDetailPage">
+    <!-- ch_16_리스트뷰 -->
+    <VerticalStackLayout>
+        <Image HeightRequest="100" Source="{Binding Image}"></Image>
+        <Label Text="{Binding Name}" HorizontalOptions="Center"/>
+        <Label Text="{Binding Age}" HorizontalOptions="Center"/>
+    </VerticalStackLayout>
+</ContentPage>

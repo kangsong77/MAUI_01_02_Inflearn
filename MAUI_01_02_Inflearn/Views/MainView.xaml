@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_01_02_Inflearn.Views.MainView"
+              xmlns:views="clr-namespace:MAUI_01_02_Inflearn.Views"
+             Title="MainView">
+    <!-- ch06_FlyoutPage 기능추가-->
+    <!-- 본문 -->
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <views:FirstPage></views:FirstPage>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+    <!-- 메뉴 -->
+    <FlyoutPage.Flyout>
+        <ContentPage Title="메뉴" BackgroundColor="LightBlue">
+            <Grid RowDefinitions="Auto, Auto" RowSpacing="10" Padding="5">
+                <Grid Grid.Row="0">
+                    <!--<Frame BackgroundColor="Pink">
+                        <Label Text="MAUI App" VerticalOptions="Center" HorizontalOptions="Center"
+                               TextColor="#7A7A7A" FontSize="18" FontAttributes="Bold"/>
+                    </Frame>-->
+                    <!-- ch12_Shapes-->
+                    <!--<Border BackgroundColor="Pink">
+                        <Border.StrokeShape>
+                            <Ellipse></Ellipse>
+                        </Border.StrokeShape>
+                        <Label Text="MAUI App" VerticalOptions="Center" HorizontalOptions="Center"
+                               Padding="10"
+                               TextColor="#7A7A7A" FontSize="18" FontAttributes="Bold"/>
+                    </Border>-->
+                    <!-- ch15_캐로우셀뷰-->
+                    <!-- Spacing: 인디케이터 보이려면 값 지정해야함-->
+                    <VerticalStackLayout Spacing="5">
+                        <CarouselView IndicatorView="indiView">
+                            <CarouselView.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>마우이 앱</x:String>
+                                    <x:String>깊알못</x:String>
+                                    <x:String>인프런강좌</x:String>
+                                    <x:String>🎠 🎉</x:String>
+                                </x:Array>
+                            </CarouselView.ItemsSource>
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BackgroundColor="LightGray" HeightRequest="100" WidthRequest="200"
+                               HorizontalOptions="Center">
+                                        <Border BackgroundColor="Salmon">
+                                            <Border.StrokeShape>
+                                                <Rectangle />
+                                            </Border.StrokeShape>
+                                            <Label Text="{Binding .}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Wheat" FontSize="Title" />
+                                        </Border>
+                                    </Frame>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+                        <IndicatorView x:Name="indiView"
+                          IndicatorColor="LightGray"
+                          SelectedIndicatorColor="Black"
+                          IndicatorSize="10" HorizontalOptions="Center" Margin="10"/>
+                    </VerticalStackLayout>
+                </Grid>
+                <VerticalStackLayout Grid.Row="1" Spacing="10">
+                    <Button Text="GridView" Clicked="btn1_Clicked" x:Name="btn1" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+                    <Button Text="FlexLayout" Clicked="btn2_Clicked"  x:Name="btn2" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+                    <Button Text="AbsoluteLayout" Clicked="btn3_Clicked"  x:Name="btn3" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+                    <Button Text="NavigationView" Clicked="btn4_Clicked"  x:Name="btn4" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+                    <Button Text="Shapes" Clicked="btn5_Clicked"  x:Name="btn5" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+                    <Button Text="EventView" Clicked="btn6_Clicked"  x:Name="btn6" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+                    <Button Text="EventView2" Clicked="btn7_Clicked"  x:Name="btn7" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+                    <Button Text="CarouselPage" Clicked="btn8_Clicked"  x:Name="btn8" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+                    <Button Text="ListView" Clicked="btn9_Clicked"  x:Name="btn9" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+                    <Button Text="CollectionView" Clicked="btn10_Clicked"  x:Name="btn10" FontSize="Medium" 
+                            FontAttributes="Bold" BackgroundColor="DeepSkyBlue"/>
+                    
+                </VerticalStackLayout>
+            </Grid>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+</FlyoutPage>

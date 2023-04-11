@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_01_02_Inflearn.Views.MainView2"
+              xmlns:views="clr-namespace:MAUI_01_02_Inflearn.Views"
+             Title="MainView">
+    <!-- ch18_컬렉션뷰로 메뉴구성 다시하기-->
+    <!-- 본문 -->
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <views:FirstPage></views:FirstPage>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+    <!-- 메뉴 -->
+    <FlyoutPage.Flyout>
+        <ContentPage Title="메뉴" BackgroundColor="LightBlue">
+            <Grid RowDefinitions="Auto, Auto" RowSpacing="10" Padding="5">
+                <Grid Grid.Row="0">
+                    <VerticalStackLayout Spacing="5">
+                        <CarouselView IndicatorView="indiView">
+                            <CarouselView.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>마우이 앱</x:String>
+                                    <x:String>깊알못</x:String>
+                                    <x:String>인프런강좌</x:String>
+                                    <x:String>🎠 🎉</x:String>
+                                </x:Array>
+                            </CarouselView.ItemsSource>
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BackgroundColor="LightGray" HeightRequest="100" WidthRequest="200"
+                               HorizontalOptions="Center">
+                                        <Border BackgroundColor="Salmon">
+                                            <Border.StrokeShape>
+                                                <Rectangle />
+                                            </Border.StrokeShape>
+                                            <Label Text="{Binding .}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" FontSize="Title" />
+                                        </Border>
+                                    </Frame>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+                        <IndicatorView x:Name="indiView"
+                          IndicatorColor="LightGray"
+                          SelectedIndicatorColor="Black"
+                          IndicatorSize="10" HorizontalOptions="Center" Margin="10"/>
+                    </VerticalStackLayout>
+                </Grid>
+                <VerticalStackLayout Grid.Row="1" Spacing="10">
+                    <CollectionView x:Name="lst"
+                                    SelectionMode="Single"
+                                    SelectionChanged="lst_SelectionChanged">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Name}"  Margin="5" Padding="10" 
+                                       FontSize="Body" FontAttributes="Bold" TextColor="White"
+                                           BackgroundColor="DeepSkyBlue" />
+                                </VerticalStackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <!-- 리스트뷰와 다른 부분: 가로 배치, 2개씩 배치 가능-->
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="2" />
+                        </CollectionView.ItemsLayout>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Grid>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+</FlyoutPage>

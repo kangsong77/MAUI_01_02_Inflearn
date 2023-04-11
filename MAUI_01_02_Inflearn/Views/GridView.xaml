@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_01_02_Inflearn.Views.GridView"
+             Title="GridView">
+    <!--<Grid RowDefinitions="100, 2*, *"> --><!-- 100, 100뺀 나머지 영역에서 2:1 비율로 가져감-->
+    <!--<Grid RowDefinitions="*, *, *"> 화면크기 삼등분-->
+    <!--<Grid RowDefinitions="Auto, Auto, Auto"> 컨텐트 크기만큼--><!-- 
+        <Button Grid.Row="0" BackgroundColor="#f00" Text="0" />
+        <Button Grid.Row="1" BackgroundColor="#0f0" Text="0" />
+        <Button Grid.Row="2" BackgroundColor="#00f" Text="0" />
+    </Grid>-->
+
+    <!-- Span -->
+    <Grid RowDefinitions="100, 2*, *, *" ColumnDefinitions="*,*,*">
+        <Button Grid.Row="0" Grid.Column="0" BackgroundColor="DarkBlue" Text="0" />
+        <Button Grid.Row="1" Grid.Column="0" BackgroundColor="DarkCyan" Text="1" />
+        <Button Grid.Row="2" Grid.Column="0" BackgroundColor="DarkGreen" Text="2" />
+        <Button Grid.Row="3" Grid.Column="0" BackgroundColor="DarkKhaki" Text="3" />
+
+        <Button Grid.Row="0" Grid.Column="1" BackgroundColor="DarkBlue" Text="4" />
+        <Button Grid.Row="1" Grid.Column="1" BackgroundColor="DarkCyan" Text="5" />
+        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  BackgroundColor="DarkGreen" Text="6" />
+    </Grid>
+</ContentPage>

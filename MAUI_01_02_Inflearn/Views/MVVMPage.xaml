@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:MAUI_01_02_Inflearn.Services"
+             x:Class="MAUI_01_02_Inflearn.Views.MVVMPage"
+             Title="MVVMPage">
+    <ContentPage.Resources>
+        <!-- BoolConverter클래스를 bc라는 이름으로 사용-->
+        <converter:BoolConerter x:Key="bc" />
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout Spacing="5">
+            <Label Text="{Binding foods.Name}"/>
+            <!-- StringFormat: 숫자에 3자리마다 콤마-->
+            <Label Text="{Binding foods.Price,StringFormat='{}{0:#.0}'}"/>
+            <Stepper x:Name="myStepper" Minimum="0" Maximum="{Binding foods.Stock}" Increment="10" />
+            <!-- 요소들끼리 바인딩-->
+            <Label BindingContext="{x:Reference myStepper}" Text="{Binding Path=Value}" />
+            <!-- 이벤트에 바인딩 -->
+            <Button Text="버튼" Command="{Binding btnCommand}"></Button>
+            <Button Text="버튼" Command="{Binding btnCommand2}" CommandParameter="{Binding Source={x:Reference myStepper},Path=Value}"></Button>
+
+            <Label Text="컬렉션뷰에 MVVM적용하기"></Label>
+            <!-- 리스트형태라 아이템소스에 넣어주고 DataTemplate밑에서 바인딩 -->
+            <CollectionView ItemsSource="{Binding persons}" SelectionMode="Single" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Image Source="{Binding Image}"></Image>
+                            <Label Text="{Binding Name}"  HorizontalOptions="Center" />
+                            <Label Text="{Binding Human2}"  HorizontalOptions="Center" />
+                            <!-- BoolConverter> 텍스트가 "YES"이면 true 의 불형 리턴. IsChecked의 값은 true/false로 -->
+                            <CheckBox HorizontalOptions="Center" IsChecked="{Binding Human2,Converter={StaticResource bc}}" />
+                            <Switch HorizontalOptions="Center" IsToggled="{Binding Human}" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <!-- 리스트뷰와 다른 부분: 가로 배치, 2개씩 배치 가능-->
+                <CollectionView.ItemsLayout>
+                    <!--<GridItemsLayout Orientation="Horizontal" />-->
+                    <GridItemsLayout Orientation="Vertical" Span="2" 
+                             VerticalItemSpacing="30" HorizontalItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>
